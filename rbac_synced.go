@@ -36,3 +36,87 @@ func (e *SyncedEnforcer) DeleteRoleForUserInDomain(user string, role string, dom
 	defer e.m.Unlock()
 	return e.api.DeleteRoleForUserInDomain(user, role, domain)
 }
+
+func (e *SyncedEnforcer) GetRolesForUser(name string) ([]string, error) {
+	e.m.Lock()
+	defer e.m.Unlock()
+	return e.api.GetRolesForUser(name)
+}
+
+func (e *SyncedEnforcer) GetUsersForRole(name string) ([]string, error) {
+	e.m.Lock()
+	defer e.m.Unlock()
+	return e.api.GetUsersForRole(name)
+}
+
+func (e *SyncedEnforcer) HasRoleForUser(name string, role string) (bool, error) {
+	e.m.Lock()
+	defer e.m.Unlock()
+	return e.api.HasRoleForUser(name, role)
+}
+
+func (e *SyncedEnforcer) AddRoleForUser(user string, role string) (bool, error) {
+	e.m.Lock()
+	defer e.m.Unlock()
+	return e.api.AddRoleForUser(user, role)
+}
+
+func (e *SyncedEnforcer) DeleteRoleForUser(user string, role string) (bool, error) {
+	e.m.Lock()
+	defer e.m.Unlock()
+	return e.api.DeleteRoleForUser(user, role)
+}
+
+func (e *SyncedEnforcer) DeleteRolesForUser(user string) (bool, error) {
+	e.m.Lock()
+	defer e.m.Unlock()
+	return e.api.DeleteRolesForUser(user)
+}
+
+func (e *SyncedEnforcer) DeleteUser(user string) (bool, error) {
+	e.m.Lock()
+	defer e.m.Unlock()
+	return e.api.DeleteUser(user)
+}
+
+func (e *SyncedEnforcer) DeleteRole(role string) (bool, error) {
+	e.m.Lock()
+	defer e.m.Unlock()
+	return e.api.DeleteRole(role)
+}
+
+func (e *SyncedEnforcer) DeletePermission(permission ...string) (bool, error) {
+	e.m.Lock()
+	defer e.m.Unlock()
+	return e.DeletePermission(permission...)
+}
+
+func (e *SyncedEnforcer) AddPermissionForUser(user string, permission ...string) (bool, error) {
+	e.m.Lock()
+	defer e.m.Unlock()
+	return e.api.AddPermissionForUser(user, permission...)
+}
+
+func (e *SyncedEnforcer) DeletePermissionForUser(user string, permission ...string) (bool, error) {
+	e.m.Lock()
+	defer e.m.Unlock()
+	return e.api.DeletePermissionForUser(user, permission...)
+}
+
+func (e *SyncedEnforcer) DeletePermissionsForUser(user string) (bool, error) {
+	e.m.Lock()
+	defer e.m.Unlock()
+	return e.api.DeletePermissionsForUser(user)
+}
+
+func (e *SyncedEnforcer) GetPermissionsForUser(user string) [][]string {
+	e.m.Lock()
+	defer e.m.Unlock()
+	return e.api.GetPermissionsForUser(user)
+}
+
+func (e *SyncedEnforcer) HasPermissionForUser(user string, permission ...string) bool {
+	e.m.Lock()
+	defer e.m.Unlock()
+	return e.api.HasPermissionForUser(user, permission...)
+}

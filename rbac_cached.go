@@ -26,3 +26,86 @@ func (e *CachedEnforcer) AddRoleForUserInDomain(user string, role string, domain
 func (e *CachedEnforcer) DeleteRoleForUserInDomain(user string, role string, domain string) (bool, error) {
 	return e.api.DeleteRoleForUserInDomain(user, role, domain)
 }
+
+func (e *CachedEnforcer) GetRolesForUser(name string) ([]string, error) {
+	return e.api.GetRolesForUser(name)
+}
+
+func (e *CachedEnforcer) GetUsersForRole(name string) ([]string, error) {
+	return e.api.GetUsersForRole(name)
+}
+
+func (e *CachedEnforcer) HasRoleForUser(name string, role string) (bool, error) {
+	return e.api.HasRoleForUser(name, role)
+}
+
+func (e *CachedEnforcer) AddRoleForUser(user string, role string) (bool, error) {
+	if e.autoClear {
+		defer e.InvalidateCache()
+	}
+	return e.api.AddRoleForUser(user, role)
+}
+
+func (e *CachedEnforcer) DeleteRoleForUser(user string, role string) (bool, error) {
+	if e.autoClear {
+		defer e.InvalidateCache()
+	}
+	return e.api.DeleteRoleForUser(user, role)
+}
+
+func (e *CachedEnforcer) DeleteRolesForUser(user string) (bool, error) {
+	if e.autoClear {
+		defer e.InvalidateCache()
+	}
+	return e.api.DeleteRolesForUser(user)
+}
+
+func (e *CachedEnforcer) DeleteUser(user string) (bool, error) {
+	if e.autoClear {
+		defer e.InvalidateCache()
+	}
+	return e.api.DeleteUser(user)
+}
+
+func (e *CachedEnforcer) DeleteRole(role string) (bool, error) {
+	if e.autoClear {
+		defer e.InvalidateCache()
+	}
+	return e.api.DeleteRole(role)
+}
+
+func (e *CachedEnforcer) DeletePermission(permission ...string) (bool, error) {
+	if e.autoClear {
+		defer e.InvalidateCache()
+	}
+	return e.DeletePermission(permission...)
+}
+
+func (e *CachedEnforcer) AddPermissionForUser(user string, permission ...string) (bool, error) {
+	if e.autoClear {
+		defer e.InvalidateCache()
+	}
+	return e.api.AddPermissionForUser(user, permission...)
+}
+
+func (e *CachedEnforcer) DeletePermissionForUser(user string, permission ...string) (bool, error) {
+	if e.autoClear {
+		defer e.InvalidateCache()
+	}
+	return e.api.DeletePermissionForUser(user, permission...)
+}
+
+func (e *CachedEnforcer) DeletePermissionsForUser(user string) (bool, error) {
+	if e.autoClear {
+		defer e.InvalidateCache()
+	}
+	return e.api.DeletePermissionsForUser(user)
+}
+
+func (e *CachedEnforcer) GetPermissionsForUser(user string) [][]string {
+	return e.api.GetPermissionsForUser(user)
+}
+
+func (e *CachedEnforcer) HasPermissionForUser(user string, permission ...string) bool {
+	return e.api.HasPermissionForUser(user, permission...)
+}

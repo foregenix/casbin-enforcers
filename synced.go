@@ -13,9 +13,10 @@ import (
 	"github.com/casbin/casbin/v2/rbac"
 )
 
+var _ FullEnforcer = &SyncedEnforcer{}
+
 // SyncedEnforcer wraps Enforcer and provides synchronized access
 type SyncedEnforcer struct {
-	Enforcer        *casbin.Enforcer
 	base            BasicEnforcer
 	api             APIEnforcer
 	m               sync.RWMutex
@@ -46,7 +47,6 @@ func NewSyncedEnforcer(params ...interface{}) (*SyncedEnforcer, error) {
 		e.api = ef
 	}
 
-	e.Enforcer = GetRootEnforcer(e.base)
 	e.stopAutoLoad = make(chan struct{}, 1)
 	return e, nil
 }
