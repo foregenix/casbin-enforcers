@@ -51,8 +51,8 @@ type (
 	// Enforcer wrappers must implement this interface in order to expose the RBAC and
 	// management APIs from lower level wrappers or the root Enforcer.
 	APIEnforcer interface {
-		GetRolesForUser(name string) ([]string, error)
-		GetUsersForRole(name string) ([]string, error)
+		GetRolesForUser(name string, domains ...string) ([]string, error)
+		GetUsersForRole(name string, domains ...string) ([]string, error)
 		HasRoleForUser(name string, role string) (bool, error)
 		AddRoleForUser(user string, role string) (bool, error)
 		DeleteRoleForUser(user string, role string) (bool, error)

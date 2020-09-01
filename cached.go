@@ -15,7 +15,7 @@ import (
 
 var _ FullEnforcer = &CachedEnforcer{}
 
-// CachedEnforcer wraps Enforcer and provides decision cache
+// CachedEnforcer wraps Enforcer and provides decision cache.
 type CachedEnforcer struct {
 	base        BasicEnforcer
 	api         APIEnforcer
@@ -63,7 +63,7 @@ func (e *CachedEnforcer) EnableAutoClear(enableAuto bool) {
 }
 
 // Enforce decides whether a "subject" can access a "object" with the operation "action", input parameters are usually: (sub, obj, act).
-// if rvals is not string , ignore the cache
+// if rvals is not string , ignore the cache.
 func (e *CachedEnforcer) Enforce(rvals ...interface{}) (bool, error) {
 	if !e.enableCache {
 		return e.base.Enforce(rvals...)
@@ -153,7 +153,6 @@ func (e *CachedEnforcer) LoadModel() error {
 
 // GetModel gets the current model.
 func (e *CachedEnforcer) GetModel() model.Model {
-
 	return e.base.GetModel()
 }
 

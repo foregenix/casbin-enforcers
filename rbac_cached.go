@@ -27,12 +27,12 @@ func (e *CachedEnforcer) DeleteRoleForUserInDomain(user string, role string, dom
 	return e.api.DeleteRoleForUserInDomain(user, role, domain)
 }
 
-func (e *CachedEnforcer) GetRolesForUser(name string) ([]string, error) {
-	return e.api.GetRolesForUser(name)
+func (e *CachedEnforcer) GetRolesForUser(name string, domains ...string) ([]string, error) {
+	return e.api.GetRolesForUser(name, domains...)
 }
 
-func (e *CachedEnforcer) GetUsersForRole(name string) ([]string, error) {
-	return e.api.GetUsersForRole(name)
+func (e *CachedEnforcer) GetUsersForRole(name string, domains ...string) ([]string, error) {
+	return e.api.GetUsersForRole(name, domains...)
 }
 
 func (e *CachedEnforcer) HasRoleForUser(name string, role string) (bool, error) {

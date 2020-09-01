@@ -17,12 +17,12 @@ type DummyEnforcer struct {
 var ErrorUnsupported = errors.New("unsupported function")
 
 // GetRolesForUser returns nil and ErrorUnsupported
-func (e *DummyEnforcer) GetRolesForUser(name string) ([]string, error) {
+func (e *DummyEnforcer) GetRolesForUser(name string, domains ...string) ([]string, error) {
 	return nil, ErrorUnsupported
 }
 
 // GetUsersForRole returns nil and ErrorUnsupported
-func (e *DummyEnforcer) GetUsersForRole(name string) ([]string, error) {
+func (e *DummyEnforcer) GetUsersForRole(name string, domains ...string) ([]string, error) {
 	return nil, ErrorUnsupported
 }
 

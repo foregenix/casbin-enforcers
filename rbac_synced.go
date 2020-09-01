@@ -37,16 +37,16 @@ func (e *SyncedEnforcer) DeleteRoleForUserInDomain(user string, role string, dom
 	return e.api.DeleteRoleForUserInDomain(user, role, domain)
 }
 
-func (e *SyncedEnforcer) GetRolesForUser(name string) ([]string, error) {
+func (e *SyncedEnforcer) GetRolesForUser(name string, domains ...string) ([]string, error) {
 	e.m.Lock()
 	defer e.m.Unlock()
-	return e.api.GetRolesForUser(name)
+	return e.api.GetRolesForUser(name, domains...)
 }
 
-func (e *SyncedEnforcer) GetUsersForRole(name string) ([]string, error) {
+func (e *SyncedEnforcer) GetUsersForRole(name string, domains ...string) ([]string, error) {
 	e.m.Lock()
 	defer e.m.Unlock()
-	return e.api.GetUsersForRole(name)
+	return e.api.GetUsersForRole(name, domains...)
 }
 
 func (e *SyncedEnforcer) HasRoleForUser(name string, role string) (bool, error) {
