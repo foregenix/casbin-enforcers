@@ -4,3 +4,5 @@ github.com/casbin/casbin/v2 v2.2.1 h1:ijrSMfBfbQlDc4LnMTGtGYWmhKuuR6RLSQRj8vHrMz
 github.com/casbin/casbin/v2 v2.2.1/go.mod h1:YcPU1XXisHhLzuxH9coDNf2FbKpjGlbCg3n9yuLkIJQ=
 github.com/casbin/casbin/v2 v2.11.2 h1:kdJ3ZMfPtz6uzKwAaW4G4NIld0U2KeHrgFcEhi40evc=
 github.com/casbin/casbin/v2 v2.11.2/go.mod h1:XXtYGrs/0zlOsJMeRteEdVi/FsB0ph7KgNfjoCoJUD8=
+github.com/casbin/casbin/v2 v2.13.0 h1:/5RAcoo9Nidi6dSXpq5RY2+ll5s71KaW4wUoYMD2Ld0=
+github.com/casbin/casbin/v2 v2.13.0/go.mod h1:XXtYGrs/0zlOsJMeRteEdVi/FsB0ph7KgNfjoCoJUD8=

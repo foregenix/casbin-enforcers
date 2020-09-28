@@ -35,29 +35,29 @@ func (e *CachedEnforcer) GetUsersForRole(name string, domains ...string) ([]stri
 	return e.api.GetUsersForRole(name, domains...)
 }
 
-func (e *CachedEnforcer) HasRoleForUser(name string, role string) (bool, error) {
-	return e.api.HasRoleForUser(name, role)
+func (e *CachedEnforcer) HasRoleForUser(name string, role string, domain ...string) (bool, error) {
+	return e.api.HasRoleForUser(name, role, domain...)
 }
 
-func (e *CachedEnforcer) AddRoleForUser(user string, role string) (bool, error) {
+func (e *CachedEnforcer) AddRoleForUser(user string, role string, domain ...string) (bool, error) {
 	if e.autoClear {
 		defer e.InvalidateCache()
 	}
-	return e.api.AddRoleForUser(user, role)
+	return e.api.AddRoleForUser(user, role, domain...)
 }
 
-func (e *CachedEnforcer) DeleteRoleForUser(user string, role string) (bool, error) {
+func (e *CachedEnforcer) DeleteRoleForUser(user string, role string, domain ...string) (bool, error) {
 	if e.autoClear {
 		defer e.InvalidateCache()
 	}
-	return e.api.DeleteRoleForUser(user, role)
+	return e.api.DeleteRoleForUser(user, role, domain...)
 }
 
-func (e *CachedEnforcer) DeleteRolesForUser(user string) (bool, error) {
+func (e *CachedEnforcer) DeleteRolesForUser(user string, domain ...string) (bool, error) {
 	if e.autoClear {
 		defer e.InvalidateCache()
 	}
-	return e.api.DeleteRolesForUser(user)
+	return e.api.DeleteRolesForUser(user, domain...)
 }
 
 func (e *CachedEnforcer) DeleteUser(user string) (bool, error) {
@@ -102,8 +102,8 @@ func (e *CachedEnforcer) DeletePermissionsForUser(user string) (bool, error) {
 	return e.api.DeletePermissionsForUser(user)
 }
 
-func (e *CachedEnforcer) GetPermissionsForUser(user string) [][]string {
-	return e.api.GetPermissionsForUser(user)
+func (e *CachedEnforcer) GetPermissionsForUser(user string, domain ...string) [][]string {
+	return e.api.GetPermissionsForUser(user, domain...)
 }
 
 func (e *CachedEnforcer) HasPermissionForUser(user string, permission ...string) bool {

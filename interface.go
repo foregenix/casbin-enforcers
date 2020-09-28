@@ -53,17 +53,17 @@ type (
 	APIEnforcer interface {
 		GetRolesForUser(name string, domains ...string) ([]string, error)
 		GetUsersForRole(name string, domains ...string) ([]string, error)
-		HasRoleForUser(name string, role string) (bool, error)
-		AddRoleForUser(user string, role string) (bool, error)
-		DeleteRoleForUser(user string, role string) (bool, error)
-		DeleteRolesForUser(user string) (bool, error)
+		HasRoleForUser(name string, role string, domain ...string) (bool, error)
+		AddRoleForUser(user string, role string, domain ...string) (bool, error)
+		DeleteRoleForUser(user string, role string, domain ...string) (bool, error)
+		DeleteRolesForUser(user string, domain ...string) (bool, error)
 		DeleteUser(user string) (bool, error)
 		DeleteRole(role string) (bool, error)
 		DeletePermission(permission ...string) (bool, error)
 		AddPermissionForUser(user string, permission ...string) (bool, error)
 		DeletePermissionForUser(user string, permission ...string) (bool, error)
 		DeletePermissionsForUser(user string) (bool, error)
-		GetPermissionsForUser(user string) [][]string
+		GetPermissionsForUser(user string, domain ...string) [][]string
 		HasPermissionForUser(user string, permission ...string) bool
 		GetImplicitRolesForUser(name string, domain ...string) ([]string, error)
 		GetImplicitPermissionsForUser(user string, domain ...string) ([][]string, error)

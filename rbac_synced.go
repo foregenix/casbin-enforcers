@@ -49,28 +49,28 @@ func (e *SyncedEnforcer) GetUsersForRole(name string, domains ...string) ([]stri
 	return e.api.GetUsersForRole(name, domains...)
 }
 
-func (e *SyncedEnforcer) HasRoleForUser(name string, role string) (bool, error) {
+func (e *SyncedEnforcer) HasRoleForUser(name string, role string, domain ...string) (bool, error) {
 	e.m.Lock()
 	defer e.m.Unlock()
-	return e.api.HasRoleForUser(name, role)
+	return e.api.HasRoleForUser(name, role, domain...)
 }
 
-func (e *SyncedEnforcer) AddRoleForUser(user string, role string) (bool, error) {
+func (e *SyncedEnforcer) AddRoleForUser(user string, role string, domain ...string) (bool, error) {
 	e.m.Lock()
 	defer e.m.Unlock()
-	return e.api.AddRoleForUser(user, role)
+	return e.api.AddRoleForUser(user, role, domain...)
 }
 
-func (e *SyncedEnforcer) DeleteRoleForUser(user string, role string) (bool, error) {
+func (e *SyncedEnforcer) DeleteRoleForUser(user string, role string, domain ...string) (bool, error) {
 	e.m.Lock()
 	defer e.m.Unlock()
-	return e.api.DeleteRoleForUser(user, role)
+	return e.api.DeleteRoleForUser(user, role, domain...)
 }
 
-func (e *SyncedEnforcer) DeleteRolesForUser(user string) (bool, error) {
+func (e *SyncedEnforcer) DeleteRolesForUser(user string, domain ...string) (bool, error) {
 	e.m.Lock()
 	defer e.m.Unlock()
-	return e.api.DeleteRolesForUser(user)
+	return e.api.DeleteRolesForUser(user, domain...)
 }
 
 func (e *SyncedEnforcer) DeleteUser(user string) (bool, error) {
@@ -109,10 +109,10 @@ func (e *SyncedEnforcer) DeletePermissionsForUser(user string) (bool, error) {
 	return e.api.DeletePermissionsForUser(user)
 }
 
-func (e *SyncedEnforcer) GetPermissionsForUser(user string) [][]string {
+func (e *SyncedEnforcer) GetPermissionsForUser(user string, domain ...string) [][]string {
 	e.m.Lock()
 	defer e.m.Unlock()
-	return e.api.GetPermissionsForUser(user)
+	return e.api.GetPermissionsForUser(user, domain...)
 }
 
 func (e *SyncedEnforcer) HasPermissionForUser(user string, permission ...string) bool {
