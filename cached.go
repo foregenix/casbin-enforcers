@@ -7,7 +7,7 @@ import (
 	"github.com/Knetic/govaluate"
 	"github.com/casbin/casbin/v2"
 
-	"github.com/casbin/casbin/v2/effect"
+	"github.com/casbin/casbin/v2/effector"
 	"github.com/casbin/casbin/v2/model"
 	"github.com/casbin/casbin/v2/persist"
 	"github.com/casbin/casbin/v2/rbac"
@@ -193,7 +193,7 @@ func (e *CachedEnforcer) SetRoleManager(rm rbac.RoleManager) {
 }
 
 // SetEffector sets the current effector.
-func (e *CachedEnforcer) SetEffector(eft effect.Effector) {
+func (e *CachedEnforcer) SetEffector(eft effector.Effector) {
 	e.base.SetEffector(eft)
 	if e.autoClear {
 		e.InvalidateCache()

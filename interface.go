@@ -3,7 +3,7 @@ package casbin_enforcers
 import (
 	"github.com/Knetic/govaluate"
 	"github.com/casbin/casbin/v2"
-	"github.com/casbin/casbin/v2/effect"
+	"github.com/casbin/casbin/v2/effector"
 	"github.com/casbin/casbin/v2/model"
 	"github.com/casbin/casbin/v2/persist"
 	"github.com/casbin/casbin/v2/rbac"
@@ -25,7 +25,7 @@ type (
 		SetWatcher(watcher persist.Watcher) error
 		GetRoleManager() rbac.RoleManager
 		SetRoleManager(rm rbac.RoleManager)
-		SetEffector(eft effect.Effector)
+		SetEffector(eft effector.Effector)
 		ClearPolicy()
 		LoadPolicy() error
 		LoadFilteredPolicy(filter interface{}) error
