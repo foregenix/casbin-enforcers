@@ -1,12 +1,12 @@
 package casbin_enforcers
 
 import (
-	"github.com/Knetic/govaluate"
 	"github.com/casbin/casbin/v2"
 	"github.com/casbin/casbin/v2/effector"
 	"github.com/casbin/casbin/v2/model"
 	"github.com/casbin/casbin/v2/persist"
 	"github.com/casbin/casbin/v2/rbac"
+	"github.com/casbin/govaluate"
 )
 
 type (

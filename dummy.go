@@ -3,7 +3,7 @@ package casbin_enforcers
 import (
 	"errors"
 
-	"github.com/Knetic/govaluate"
+	"github.com/casbin/govaluate"
 )
 
 // DummyEnforcer is a dummy implementation of APIEnforcer which simply returns either
