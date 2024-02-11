@@ -102,7 +102,7 @@ func (e *CachedEnforcer) DeletePermissionsForUser(user string) (bool, error) {
 	return e.api.DeletePermissionsForUser(user)
 }
 
-func (e *CachedEnforcer) GetPermissionsForUser(user string, domain ...string) [][]string {
+func (e *CachedEnforcer) GetPermissionsForUser(user string, domain ...string) ([][]string, error) {
 	return e.api.GetPermissionsForUser(user, domain...)
 }
 

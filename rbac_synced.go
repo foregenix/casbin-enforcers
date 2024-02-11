@@ -109,7 +109,7 @@ func (e *SyncedEnforcer) DeletePermissionsForUser(user string) (bool, error) {
 	return e.api.DeletePermissionsForUser(user)
 }
 
-func (e *SyncedEnforcer) GetPermissionsForUser(user string, domain ...string) [][]string {
+func (e *SyncedEnforcer) GetPermissionsForUser(user string, domain ...string) ([][]string, error) {
 	e.m.Lock()
 	defer e.m.Unlock()
 	return e.api.GetPermissionsForUser(user, domain...)

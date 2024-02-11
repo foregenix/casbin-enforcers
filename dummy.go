@@ -77,8 +77,8 @@ func (e *DummyEnforcer) DeletePermissionsForUser(user string) (bool, error) {
 }
 
 // GetPermissionsForUser returns nil.
-func (e *DummyEnforcer) GetPermissionsForUser(user string, domain ...string) [][]string {
-	return nil
+func (e *DummyEnforcer) GetPermissionsForUser(user string, domain ...string) ([][]string, error) {
+	return nil, ErrorUnsupported
 }
 
 // HasPermissionForUser returns false.

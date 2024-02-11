@@ -40,7 +40,7 @@ func TestDummy(t *testing.T) {
 	checkReturns()
 	ok, err = d.DeletePermissionsForUser("")
 	checkReturns()
-	saa = d.GetPermissionsForUser("")
+	saa, err = d.GetPermissionsForUser("")
 	checkReturns()
 	ok = d.HasPermissionForUser("", "")
 	checkReturns()
