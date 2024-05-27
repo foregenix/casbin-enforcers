@@ -115,7 +115,7 @@ func (e *SyncedEnforcer) GetPermissionsForUser(user string, domain ...string) ([
 	return e.api.GetPermissionsForUser(user, domain...)
 }
 
-func (e *SyncedEnforcer) HasPermissionForUser(user string, permission ...string) bool {
+func (e *SyncedEnforcer) HasPermissionForUser(user string, permission ...string) (bool, error) {
 	e.m.Lock()
 	defer e.m.Unlock()
 	return e.api.HasPermissionForUser(user, permission...)

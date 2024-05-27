@@ -264,92 +264,92 @@ func (e *CachedEnforcer) EnforceWithMatcher(matcher string, rvals ...interface{}
 }
 
 // GetAllSubjects gets the list of subjects that show up in the current policy.
-func (e *CachedEnforcer) GetAllSubjects() []string {
+func (e *CachedEnforcer) GetAllSubjects() ([]string, error) {
 	return e.api.GetAllSubjects()
 }
 
 // GetAllNamedSubjects gets the list of subjects that show up in the current named policy.
-func (e *CachedEnforcer) GetAllNamedSubjects(ptype string) []string {
+func (e *CachedEnforcer) GetAllNamedSubjects(ptype string) ([]string, error) {
 	return e.api.GetAllNamedSubjects(ptype)
 }
 
 // GetAllObjects gets the list of objects that show up in the current policy.
-func (e *CachedEnforcer) GetAllObjects() []string {
+func (e *CachedEnforcer) GetAllObjects() ([]string, error) {
 	return e.api.GetAllObjects()
 }
 
 // GetAllNamedObjects gets the list of objects that show up in the current named policy.
-func (e *CachedEnforcer) GetAllNamedObjects(ptype string) []string {
+func (e *CachedEnforcer) GetAllNamedObjects(ptype string) ([]string, error) {
 	return e.api.GetAllNamedObjects(ptype)
 }
 
 // GetAllActions gets the list of actions that show up in the current policy.
-func (e *CachedEnforcer) GetAllActions() []string {
+func (e *CachedEnforcer) GetAllActions() ([]string, error) {
 	return e.api.GetAllActions()
 }
 
 // GetAllNamedActions gets the list of actions that show up in the current named policy.
-func (e *CachedEnforcer) GetAllNamedActions(ptype string) []string {
+func (e *CachedEnforcer) GetAllNamedActions(ptype string) ([]string, error) {
 	return e.api.GetAllNamedActions(ptype)
 }
 
 // GetAllRoles gets the list of roles that show up in the current policy.
-func (e *CachedEnforcer) GetAllRoles() []string {
+func (e *CachedEnforcer) GetAllRoles() ([]string, error) {
 	return e.api.GetAllRoles()
 }
 
 // GetAllNamedRoles gets the list of roles that show up in the current named policy.
-func (e *CachedEnforcer) GetAllNamedRoles(ptype string) []string {
+func (e *CachedEnforcer) GetAllNamedRoles(ptype string) ([]string, error) {
 	return e.api.GetAllNamedRoles(ptype)
 }
 
 // GetPolicy gets all the authorization rules in the policy.
-func (e *CachedEnforcer) GetPolicy() [][]string {
+func (e *CachedEnforcer) GetPolicy() ([][]string, error) {
 	return e.api.GetPolicy()
 }
 
 // GetFilteredPolicy gets all the authorization rules in the policy, field filters can be specified.
-func (e *CachedEnforcer) GetFilteredPolicy(fieldIndex int, fieldValues ...string) [][]string {
+func (e *CachedEnforcer) GetFilteredPolicy(fieldIndex int, fieldValues ...string) ([][]string, error) {
 	return e.api.GetFilteredPolicy(fieldIndex, fieldValues...)
 }
 
 // GetNamedPolicy gets all the authorization rules in the named policy.
-func (e *CachedEnforcer) GetNamedPolicy(ptype string) [][]string {
+func (e *CachedEnforcer) GetNamedPolicy(ptype string) ([][]string, error) {
 	return e.api.GetNamedPolicy(ptype)
 }
 
 // GetFilteredNamedPolicy gets all the authorization rules in the named policy, field filters can be specified.
-func (e *CachedEnforcer) GetFilteredNamedPolicy(ptype string, fieldIndex int, fieldValues ...string) [][]string {
+func (e *CachedEnforcer) GetFilteredNamedPolicy(ptype string, fieldIndex int, fieldValues ...string) ([][]string, error) {
 	return e.api.GetFilteredNamedPolicy(ptype, fieldIndex, fieldValues...)
 }
 
 // GetGroupingPolicy gets all the role inheritance rules in the policy.
-func (e *CachedEnforcer) GetGroupingPolicy() [][]string {
+func (e *CachedEnforcer) GetGroupingPolicy() ([][]string, error) {
 	return e.api.GetGroupingPolicy()
 }
 
 // GetFilteredGroupingPolicy gets all the role inheritance rules in the policy, field filters can be specified.
-func (e *CachedEnforcer) GetFilteredGroupingPolicy(fieldIndex int, fieldValues ...string) [][]string {
+func (e *CachedEnforcer) GetFilteredGroupingPolicy(fieldIndex int, fieldValues ...string) ([][]string, error) {
 	return e.api.GetFilteredGroupingPolicy(fieldIndex, fieldValues...)
 }
 
 // GetNamedGroupingPolicy gets all the role inheritance rules in the policy.
-func (e *CachedEnforcer) GetNamedGroupingPolicy(ptype string) [][]string {
+func (e *CachedEnforcer) GetNamedGroupingPolicy(ptype string) ([][]string, error) {
 	return e.api.GetNamedGroupingPolicy(ptype)
 }
 
 // GetFilteredNamedGroupingPolicy gets all the role inheritance rules in the policy, field filters can be specified.
-func (e *CachedEnforcer) GetFilteredNamedGroupingPolicy(ptype string, fieldIndex int, fieldValues ...string) [][]string {
+func (e *CachedEnforcer) GetFilteredNamedGroupingPolicy(ptype string, fieldIndex int, fieldValues ...string) ([][]string, error) {
 	return e.api.GetFilteredNamedGroupingPolicy(ptype, fieldIndex, fieldValues...)
 }
 
 // HasPolicy determines whether an authorization rule exists.
-func (e *CachedEnforcer) HasPolicy(params ...interface{}) bool {
+func (e *CachedEnforcer) HasPolicy(params ...interface{}) (bool, error) {
 	return e.api.HasPolicy(params...)
 }
 
 // HasNamedPolicy determines whether a named authorization rule exists.
-func (e *CachedEnforcer) HasNamedPolicy(ptype string, params ...interface{}) bool {
+func (e *CachedEnforcer) HasNamedPolicy(ptype string, params ...interface{}) (bool, error) {
 	return e.api.HasNamedPolicy(ptype, params...)
 }
 
@@ -406,12 +406,12 @@ func (e *CachedEnforcer) RemoveFilteredNamedPolicy(ptype string, fieldIndex int,
 }
 
 // HasGroupingPolicy determines whether a role inheritance rule exists.
-func (e *CachedEnforcer) HasGroupingPolicy(params ...interface{}) bool {
+func (e *CachedEnforcer) HasGroupingPolicy(params ...interface{}) (bool, error) {
 	return e.api.HasGroupingPolicy(params...)
 }
 
 // HasNamedGroupingPolicy determines whether a named role inheritance rule exists.
-func (e *CachedEnforcer) HasNamedGroupingPolicy(ptype string, params ...interface{}) bool {
+func (e *CachedEnforcer) HasNamedGroupingPolicy(ptype string, params ...interface{}) (bool, error) {
 	return e.api.HasNamedGroupingPolicy(ptype, params...)
 }
 

@@ -81,9 +81,9 @@ func (e *DummyEnforcer) GetPermissionsForUser(user string, domain ...string) ([]
 	return nil, ErrorUnsupported
 }
 
-// HasPermissionForUser returns false.
-func (e *DummyEnforcer) HasPermissionForUser(user string, permission ...string) bool {
-	return false
+// HasPermissionForUser returns false and ErrorUnsupported.
+func (e *DummyEnforcer) HasPermissionForUser(user string, permission ...string) (bool, error) {
+	return false, ErrorUnsupported
 }
 
 // GetImplicitRolesForUser returns nil and ErrorUnsupported.
@@ -126,94 +126,94 @@ func (e *DummyEnforcer) DeleteRoleForUserInDomain(user string, role string, doma
 	return false, ErrorUnsupported
 }
 
-// GetAllSubjects returns nil.
-func (e *DummyEnforcer) GetAllSubjects() []string {
-	return nil
+// GetAllSubjects returns nil and ErrorUnsupported.
+func (e *DummyEnforcer) GetAllSubjects() ([]string, error) {
+	return nil, ErrorUnsupported
 }
 
-// GetAllNamedSubjects returns nil.
-func (e *DummyEnforcer) GetAllNamedSubjects(ptype string) []string {
-	return nil
+// GetAllNamedSubjects returns nil and ErrorUnsupported.
+func (e *DummyEnforcer) GetAllNamedSubjects(ptype string) ([]string, error) {
+	return nil, ErrorUnsupported
 }
 
-// GetAllObjects returns nil.
-func (e *DummyEnforcer) GetAllObjects() []string {
-	return nil
+// GetAllObjects returns nil and ErrorUnsupported.
+func (e *DummyEnforcer) GetAllObjects() ([]string, error) {
+	return nil, ErrorUnsupported
 }
 
-// GetAllNamedObjects returns nil.
-func (e *DummyEnforcer) GetAllNamedObjects(ptype string) []string {
-	return nil
+// GetAllNamedObjects returns nil and ErrorUnsupported.
+func (e *DummyEnforcer) GetAllNamedObjects(ptype string) ([]string, error) {
+	return nil, ErrorUnsupported
 }
 
-// GetAllActions returns nil.
-func (e *DummyEnforcer) GetAllActions() []string {
-	return nil
+// GetAllActions returns nil and ErrorUnsupported.
+func (e *DummyEnforcer) GetAllActions() ([]string, error) {
+	return nil, ErrorUnsupported
 }
 
-// GetAllNamedActions returns nil.
-func (e *DummyEnforcer) GetAllNamedActions(ptype string) []string {
-	return nil
+// GetAllNamedActions returns nil and ErrorUnsupported.
+func (e *DummyEnforcer) GetAllNamedActions(ptype string) ([]string, error) {
+	return nil, ErrorUnsupported
 }
 
-// GetAllRoles returns nil.
-func (e *DummyEnforcer) GetAllRoles() []string {
-	return nil
+// GetAllRoles returns nil and ErrorUnsupported.
+func (e *DummyEnforcer) GetAllRoles() ([]string, error) {
+	return nil, ErrorUnsupported
 }
 
-// GetAllNamedRoles returns nil.
-func (e *DummyEnforcer) GetAllNamedRoles(ptype string) []string {
-	return nil
+// GetAllNamedRoles returns nil and ErrorUnsupported.
+func (e *DummyEnforcer) GetAllNamedRoles(ptype string) ([]string, error) {
+	return nil, ErrorUnsupported
 }
 
-// GetPolicy returns nil.
-func (e *DummyEnforcer) GetPolicy() [][]string {
-	return nil
+// GetPolicy returns nil and ErrorUnsupported.
+func (e *DummyEnforcer) GetPolicy() ([][]string, error) {
+	return nil, ErrorUnsupported
 }
 
-// GetFilteredPolicy returns nil.
-func (e *DummyEnforcer) GetFilteredPolicy(fieldIndex int, fieldValues ...string) [][]string {
-	return nil
+// GetFilteredPolicy returns nil and ErrorUnsupported.
+func (e *DummyEnforcer) GetFilteredPolicy(fieldIndex int, fieldValues ...string) ([][]string, error) {
+	return nil, ErrorUnsupported
 }
 
-// GetNamedPolicy returns nil.
-func (e *DummyEnforcer) GetNamedPolicy(ptype string) [][]string {
-	return nil
+// GetNamedPolicy returns nil and ErrorUnsupported.
+func (e *DummyEnforcer) GetNamedPolicy(ptype string) ([][]string, error) {
+	return nil, ErrorUnsupported
 }
 
-// GetFilteredNamedPolicy returns nil.
-func (e *DummyEnforcer) GetFilteredNamedPolicy(ptype string, fieldIndex int, fieldValues ...string) [][]string {
-	return nil
+// GetFilteredNamedPolicy returns nil and ErrorUnsupported.
+func (e *DummyEnforcer) GetFilteredNamedPolicy(ptype string, fieldIndex int, fieldValues ...string) ([][]string, error) {
+	return nil, ErrorUnsupported
 }
 
-// GetGroupingPolicy returns nil.
-func (e *DummyEnforcer) GetGroupingPolicy() [][]string {
-	return nil
+// GetGroupingPolicy returns nil and ErrorUnsupported.
+func (e *DummyEnforcer) GetGroupingPolicy() ([][]string, error) {
+	return nil, ErrorUnsupported
 }
 
-// GetFilteredGroupingPolicy returns nil.
-func (e *DummyEnforcer) GetFilteredGroupingPolicy(fieldIndex int, fieldValues ...string) [][]string {
-	return nil
+// GetFilteredGroupingPolicy returns nil and ErrorUnsupported.
+func (e *DummyEnforcer) GetFilteredGroupingPolicy(fieldIndex int, fieldValues ...string) ([][]string, error) {
+	return nil, ErrorUnsupported
 }
 
-// GetNamedGroupingPolicy returns nil.
-func (e *DummyEnforcer) GetNamedGroupingPolicy(ptype string) [][]string {
-	return nil
+// GetNamedGroupingPolicy returns nil and ErrorUnsupported.
+func (e *DummyEnforcer) GetNamedGroupingPolicy(ptype string) ([][]string, error) {
+	return nil, ErrorUnsupported
 }
 
-// GetFilteredNamedGroupingPolicy returns nil.
-func (e *DummyEnforcer) GetFilteredNamedGroupingPolicy(ptype string, fieldIndex int, fieldValues ...string) [][]string {
-	return nil
+// GetFilteredNamedGroupingPolicy returns nil and ErrorUnsupported.
+func (e *DummyEnforcer) GetFilteredNamedGroupingPolicy(ptype string, fieldIndex int, fieldValues ...string) ([][]string, error) {
+	return nil, ErrorUnsupported
 }
 
-// HasPolicy returns false.
-func (e *DummyEnforcer) HasPolicy(params ...interface{}) bool {
-	return false
+// HasPolicy returns false and ErrorUnsupported.
+func (e *DummyEnforcer) HasPolicy(params ...interface{}) (bool, error) {
+	return false, ErrorUnsupported
 }
 
-// HasNamedPolicy returns false.
-func (e *DummyEnforcer) HasNamedPolicy(ptype string, params ...interface{}) bool {
-	return false
+// HasNamedPolicy returns false and ErrorUnsupported.
+func (e *DummyEnforcer) HasNamedPolicy(ptype string, params ...interface{}) (bool, error) {
+	return false, ErrorUnsupported
 }
 
 // AddPolicy returns false and ErrorUnsupported.
@@ -246,14 +246,14 @@ func (e *DummyEnforcer) RemoveFilteredNamedPolicy(ptype string, fieldIndex int, 
 	return false, ErrorUnsupported
 }
 
-// HasGroupingPolicy returns false.
-func (e *DummyEnforcer) HasGroupingPolicy(params ...interface{}) bool {
-	return false
+// HasGroupingPolicy returns false and ErrorUnsupported.
+func (e *DummyEnforcer) HasGroupingPolicy(params ...interface{}) (bool, error) {
+	return false, ErrorUnsupported
 }
 
-// HasNamedGroupingPolicy returns false.
-func (e *DummyEnforcer) HasNamedGroupingPolicy(ptype string, params ...interface{}) bool {
-	return false
+// HasNamedGroupingPolicy returns false and ErrorUnsupported.
+func (e *DummyEnforcer) HasNamedGroupingPolicy(ptype string, params ...interface{}) (bool, error) {
+	return false, ErrorUnsupported
 }
 
 // AddGroupingPolicy returns false and ErrorUnsupported.

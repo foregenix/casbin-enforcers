@@ -106,6 +106,6 @@ func (e *CachedEnforcer) GetPermissionsForUser(user string, domain ...string) ([
 	return e.api.GetPermissionsForUser(user, domain...)
 }
 
-func (e *CachedEnforcer) HasPermissionForUser(user string, permission ...string) bool {
+func (e *CachedEnforcer) HasPermissionForUser(user string, permission ...string) (bool, error) {
 	return e.api.HasPermissionForUser(user, permission...)
 }
